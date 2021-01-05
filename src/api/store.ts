@@ -1,4 +1,4 @@
-import { Loan, Payment } from "@/models/loan";
+import { Loan, Payment } from '@/models/loan';
 
 async function getLoans(url: string) {
   let loans: Loan[] = [];
@@ -21,7 +21,7 @@ async function getPayments(url: string, options: any) {
 
 class API {
   // all of the constants required
-  private loansURL = `http://localhost:3030/loans/`;
+  private loansURL = `http://loan-backend/loans/`;
   private upURL = `https://api.up.com.au/api/v1/transactions?filter%5Btag%5D=LoanPayment`;
   private upHeaders = {
     headers: new Headers({
