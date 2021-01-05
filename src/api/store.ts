@@ -21,11 +21,11 @@ async function getPayments(url: string, options: any) {
 
 class API {
   // all of the constants required
-  private loansURL = process.env.LOANS_URL;
-  private upURL = process.env.UP_URL;
+  private loansURL = process.env.VUE_APP_LOANS_URL;
+  private upURL = process.env.VUE_APP_UP_URL;
   private upHeaders = {
     headers: new Headers({
-      Authorization: process.env.UP_AUTH
+      Authorization: process.env.VUE_APP_UP_AUTH
     })
   };
   public loans: Loan[] = [];
