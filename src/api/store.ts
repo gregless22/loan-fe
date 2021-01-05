@@ -21,11 +21,11 @@ async function getPayments(url: string, options: any) {
 
 class API {
   // all of the constants required
-  private loansURL = `http://loan-backend/loans/`;
-  private upURL = `https://api.up.com.au/api/v1/transactions?filter%5Btag%5D=LoanPayment`;
+  private loansURL = process.env.LOANS_URL;
+  private upURL = process.env.UP_URL;
   private upHeaders = {
     headers: new Headers({
-      Authorization: `Bearer up:yeah:NhSasHMass5wnO7RnGM7FxM9DOjSpdrQzvnQxDNO5jM7GcTwVq4b7MwLq2Hely3iSGuIKrEFtGPa60v356Z597pGInWGyNrtSquaiUolCxZtng5s6pUO77dRr2qWH6xy`
+      Authorization: process.env.UP_AUTH
     })
   };
   public loans: Loan[] = [];
