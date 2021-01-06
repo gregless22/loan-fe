@@ -2,7 +2,7 @@ import { Loan, Payment } from "@/models/loan";
 
 async function getLoans(url: string) {
   const loans: Loan[] = [];
-  // console.log("url", url);
+  console.log("url", url);
   await fetch(url, {
     method: "GET", // or 'PUT'
     headers: {
