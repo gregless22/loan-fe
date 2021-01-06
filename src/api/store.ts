@@ -1,19 +1,19 @@
 import { Loan, Payment } from "@/models/loan";
 
 async function getLoans(url: string) {
-  const loans: Loan[] = [];
+  let loans: Loan[] = [];
   console.log("url", url);
   await fetch(url, {
     method: "GET",
     credentials: "omit",
     mode: "cors"
   })
-    .then(response => console.log("response", response))
-    // .then(response => response.json())
-    .then(data => {
-      console.log("Success:", data);
-    })
-    // .then(data => (loans = data.map((e: any) => new Loan(e))))
+    // .then(response => console.log("response", response))
+    .then(response => response.json())
+    // .then(data => {
+    //   console.log("Success:", data);
+    // })
+    .then(data => (loans = data.map((e: any) => new Loan(e))))
     .catch(err => console.log(err));
 
   return loans;
@@ -32,6 +32,7 @@ async function getPayments(url: string, options: any) {
 class API {
   // all of the constants required
   private loansURL = "http://loan-backend/loans/";
+  // private loansURL = "http://loan.tmp.server/loans/";
   private upURL =
     "https://api.up.com.au/api/v1/transactions?filter%5Btag%5D=LoanPayment";
   private upHeaders = {
