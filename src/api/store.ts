@@ -42,8 +42,7 @@ async function getPayments(url: string, options: any) {
 
 class API {
   // all of the constants required
-  private loansURL = "http://10.110.238.216/loans/";
-  // private loansURL = "http://loan.tmp.server/loans/";
+  private loansURL = "http://api.loan.server/loans/";
   private upURL =
     "https://api.up.com.au/api/v1/transactions?filter%5Btag%5D=LoanPayment";
   private upHeaders = {
