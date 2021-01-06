@@ -1,15 +1,20 @@
 import { Loan, Payment } from "@/models/loan";
 
 async function getLoans(url: string) {
-  let loans: Loan[] = [];
+  const loans: Loan[] = [];
   // console.log("url", url);
-  await fetch(url)
-    .then(response => response.json())
-    // .then(response => console.log(response))
+  await fetch(url, {
+    method: "GET", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(response => console.log("response", response))
+    // .then(response => response.json())
     .then(data => {
       console.log("Success:", data);
     })
-    .then(data => (loans = data.map((e: any) => new Loan(e))))
+    // .then(data => (loans = data.map((e: any) => new Loan(e))))
     .catch(err => console.log(err));
 
   return loans;
