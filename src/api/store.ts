@@ -1,12 +1,12 @@
 import { Loan, Payment } from "@/models/loan";
 
 async function getLoans(url: string) {
-  const loans: Loan[] = [];
-  console.log("url", url);
+  let loans: Loan[] = [];
+  // console.log("url", url);
   await fetch(url)
-    // .then(response => response.json())
-    .then(response => console.log(response))
-    // .then(data => (loans = data.map((e: any) => new Loan(e))))
+    .then(response => response.json())
+    // .then(response => console.log(response))
+    .then(data => (loans = data.map((e: any) => new Loan(e))))
     .catch(err => console.log(err));
 
   return loans;
