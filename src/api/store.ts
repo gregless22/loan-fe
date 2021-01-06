@@ -4,7 +4,9 @@ async function getLoans(url: string) {
   let data = [];
   try {
     console.log("url", url);
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      credentials: "omit"
+    });
     console.log(response);
     data = await response.json();
     console.log(data);
@@ -40,7 +42,7 @@ async function getPayments(url: string, options: any) {
 
 class API {
   // all of the constants required
-  private loansURL = "http://loan-backend/loans/";
+  private loansURL = "http://10.110.238.216/loans/";
   // private loansURL = "http://loan.tmp.server/loans/";
   private upURL =
     "https://api.up.com.au/api/v1/transactions?filter%5Btag%5D=LoanPayment";
