@@ -6,6 +6,9 @@ async function getLoans(url: string) {
   await fetch(url)
     .then(response => response.json())
     // .then(response => console.log(response))
+    .then(data => {
+      console.log("Success:", data);
+    })
     .then(data => (loans = data.map((e: any) => new Loan(e))))
     .catch(err => console.log(err));
 
