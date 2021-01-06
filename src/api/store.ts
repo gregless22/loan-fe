@@ -4,10 +4,9 @@ async function getLoans(url: string) {
   const loans: Loan[] = [];
   console.log("url", url);
   await fetch(url, {
-    method: "GET", // or 'PUT'
-    headers: {
-      "Content-Type": "application/json"
-    }
+    method: "GET",
+    credentials: "omit",
+    mode: "cors"
   })
     .then(response => console.log("response", response))
     // .then(response => response.json())
