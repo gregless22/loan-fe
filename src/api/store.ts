@@ -39,7 +39,7 @@ class API {
     const loans = getLoans(this.loansURL);
     const payments = getPayments(this.upURL, this.upHeaders);
     const values = await Promise.all([payments, loans]);
-    console.log("loans", loans, "payments", payments);
+    console.log("values", values);
     //combine the values
     values[0].forEach((e: Payment) => {
       values[1].forEach((f: Loan) => {
