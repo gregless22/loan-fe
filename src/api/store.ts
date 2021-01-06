@@ -13,6 +13,7 @@ async function getLoans(url: string) {
 }
 
 async function getPayments(url: string, options: any) {
+  console.log("url payments", url);
   let payments: Payment[] = [];
   await fetch(url, options)
     .then(response => response.json())
@@ -23,7 +24,7 @@ async function getPayments(url: string, options: any) {
 
 class API {
   // all of the constants required
-  private loansURL = "loan-backend/loans/";
+  private loansURL = "http://loan-backend/loans/";
   private upURL =
     "https://api.up.com.au/api/v1/transactions?filter%5Btag%5D=LoanPayment";
   private upHeaders = {
