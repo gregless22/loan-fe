@@ -18,7 +18,7 @@ async function getLoans(url: string) {
       console.log("Success:", data);
     })
     // .then(data => (loans = data.map((e: any) => new Loan(e))))
-    .catch(err => console.log(err));
+    .catch(err => console.log("Errorr", err));
 
   return loans;
 }
