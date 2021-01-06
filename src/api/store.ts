@@ -1,26 +1,31 @@
 import { Loan, Payment } from "@/models/loan";
 
 async function getLoans(url: string) {
-  const loans: Loan[] = [];
-  console.log("url", url);
-  await fetch(url, {
-    method: "GET",
-    credentials: "omit",
-    mode: "cors"
-  })
-    // .then(response => console.log("response", response))
-    .then(response => {
-      console.log("ok", response.ok);
-      console.log("response", response);
-      response.json();
-    })
-    .then(data => {
-      console.log("Success:", data);
-    })
-    // .then(data => (loans = data.map((e: any) => new Loan(e))))
-    .catch(err => console.log("Errorr", err));
+  let data = [];
+  try {
+    console.log("url", url);
+    const response = await fetch(url);
+    console.log(response);
+    data = await response.json();
+    console.log(data);
+  } catch (err) {
+    console.log("err", err);
+  }
+  // .then(response => console.log("response", response.json()))
+  // .then(response => {
+  //   //   console.log("ok", response.ok);
+  //   //   console.log("response", response);
+  //   response.json();
+  // })
+  // // .then(data => {
+  // //   console.log("Success:", data);
+  // // })
+  // // .then(data => (loans = data.map((e: any) => new Loan(e))))
+  // .then(data => console.log(data))
+  // .catch(err => console.log("Errorr", err));
 
-  return loans;
+  // return loans;
+  return data.map((e: any) => new Loan(e));
 }
 
 async function getPayments(url: string, options: any) {
